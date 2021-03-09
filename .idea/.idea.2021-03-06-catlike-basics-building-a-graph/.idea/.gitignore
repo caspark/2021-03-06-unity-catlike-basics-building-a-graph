@@ -1,0 +1,11 @@
+﻿# Default ignored files
+/shelf/
+/workspace.xml
+# Rider ignored files
+/projectSettingsUpdater.xml
+/modules.xml
+/contentModel.xml
+/.idea.2021-03-06-catlike-basics-building-a-graph.iml
+# Datasource local storage ignored files
+/../../../../../../../:\src\unity-2021-03-06-catlike-basics-building-a-graph\2021-03-06-catlike-basics-building-a-graph\.idea\.idea.2021-03-06-catlike-basics-building-a-graph\.idea/dataSources/
+/dataSources.local.xml
