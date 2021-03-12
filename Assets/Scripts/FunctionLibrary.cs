@@ -16,6 +16,8 @@ public static class FunctionLibrary
 
     private static readonly Function[] functions = {Wave, MultiWave, Ripple, Sphere, Torus};
 
+    public static int FunctionCount => functions.Length;
+
     public static Function GetFunction(FunctionName name)
     {
         return functions[(int) name];
@@ -79,7 +81,7 @@ public static class FunctionLibrary
 
     public static Vector3 Sphere(float u, float v, float t)
     {
-        float r = 0.9f + 0.1f * Sin(PI * (6f * u + 4f * v + t)); //Cos(0.5f * PI * t);
+        float r = 0.9f + 0.1f * Sin(PI * (12f * u + 8f * v + t)); //Cos(0.5f * PI * t);
         float s = r * Cos(PI * 0.5f * v);
         Vector3 p;
         p.x = s * Sin(PI * u);
@@ -90,8 +92,8 @@ public static class FunctionLibrary
 
     public static Vector3 Torus(float u, float v, float t)
     {
-        float r1 = 0.6f + 0.1f * Sin(PI * (6f * u + 0.5f * t)); //0.75f;
-        float r2 = 0.15f + 0.05f * Sin(PI * (8f * u + 4f * v + 2f * t)); //0.25f;
+        float r1 = 0.6f + 0.1f * Sin(PI * (8f * u + 0.5f * t)); //0.75f;
+        float r2 = 0.15f + 0.05f * Sin(PI * (16f * u + 8f * v + 3f * t)); //0.25f;
         float s = r1 + r2 * Cos(PI * v);
         Vector3 p;
         p.x = s * Sin(PI * u);
