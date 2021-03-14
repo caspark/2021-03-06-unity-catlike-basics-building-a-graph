@@ -3,10 +3,12 @@
   <component name="ContentModelUserStore">
     <attachedFolders />
     <explicitIncludes>
+      <Path>Library/PackageCache/com.unity.burst@1.4.6</Path>
       <Path>Library/PackageCache/com.unity.collab-proxy@1.2.16</Path>
       <Path>Library/PackageCache/com.unity.ext.nunit@1.0.6</Path>
       <Path>Library/PackageCache/com.unity.ide.rider@1.1.4</Path>
       <Path>Library/PackageCache/com.unity.ide.vscode@1.2.3</Path>
+      <Path>Library/PackageCache/com.unity.mathematics@1.2.1</Path>
       <Path>Library/PackageCache/com.unity.render-pipelines.core@7.5.3</Path>
       <Path>Library/PackageCache/com.unity.render-pipelines.universal@7.5.3</Path>
       <Path>Library/PackageCache/com.unity.shadergraph@7.5.3</Path>
