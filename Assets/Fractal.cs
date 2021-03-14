@@ -60,11 +60,11 @@ public class Fractal : MonoBehaviour
 
     private void Update()
     {
-        Quaternion deltaRotation = Quaternion.Euler(0f, 22.5f * Time.deltaTime, 0f);
-
+        float spinAngleDelta = 22.5f * Time.deltaTime;
+        
         FractalPart rootPart = parts[0][0];
-        rootPart.rotation *= deltaRotation;
-        rootPart.worldRotation = rootPart.rotation;
+        rootPart.spinAngle += spinAngleDelta;
+        rootPart.worldRotation = rootPart.rotation * Quaternion.Euler(0f, rootPart.spinAngle, 0f);
         parts[0][0] = rootPart;
         matrices[0][0] = Matrix4x4.TRS(rootPart.worldPosition, rootPart.worldRotation, Vector3.one);
 
@@ -79,8 +79,8 @@ public class Fractal : MonoBehaviour
             {
                 FractalPart parent = parentParts[fpi / 5];
                 FractalPart part = levelParts[fpi];
-                part.rotation *= deltaRotation;
-                part.worldRotation = parent.worldRotation * part.rotation;
+                part.spinAngle += spinAngleDelta;
+                part.worldRotation = parent.worldRotation * (part.rotation * Quaternion.Euler(0f, part.spinAngle, 0f));
                 part.worldPosition =
                     parent.worldPosition +
                     parent.worldRotation * (1.5f * scale * part.direction);
