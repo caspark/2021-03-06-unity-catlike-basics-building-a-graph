@@ -38,18 +38,20 @@ public class Fractal : MonoBehaviour
                 parent.worldPosition +
                 mul(parent.worldRotation, (1.5f * scale * part.direction));
             parts[i] = part;
-            
+
             // our custom TRS - build R and S first, then add P in later
             float3x3 r = float3x3(part.worldRotation) * scale;
             matrices[i] = float3x4(r.c0, r.c1, r.c2, part.worldPosition);
         }
     }
 
-    private static readonly int matricesId = Shader.PropertyToID("_Matrices");
+    private static readonly int
+        colorId = Shader.PropertyToID("_Color"),
+        matricesId = Shader.PropertyToID("_Matrices");
 
     private static MaterialPropertyBlock propertyBlock;
 
-    [SerializeField, Range(1, 8)] private int depth = 4;
+    [SerializeField, Range(2, 8)] private int depth = 4;
 
     [SerializeField] private Mesh mesh;
 
@@ -164,6 +166,9 @@ public class Fractal : MonoBehaviour
         {
             ComputeBuffer buffer = matricesBuffers[i];
             buffer.SetData(matrices[i]);
+            propertyBlock.SetColor(
+                colorId, Color.white * (i / (matricesBuffers.Length - 1f))
+            );
             propertyBlock.SetBuffer(matricesId, buffer);
             Graphics.DrawMeshInstancedProcedural(mesh, 0, material, bounds, buffer.count, propertyBlock);
         }
