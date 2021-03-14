@@ -57,6 +57,8 @@ public class Fractal : MonoBehaviour
 
     [SerializeField] private Material material;
 
+    [SerializeField] private Gradient gradient;
+
     private NativeArray<FractalPart>[] parts;
 
     private NativeArray<float3x4>[] matrices;
@@ -167,7 +169,7 @@ public class Fractal : MonoBehaviour
             ComputeBuffer buffer = matricesBuffers[i];
             buffer.SetData(matrices[i]);
             propertyBlock.SetColor(
-                colorId, Color.Lerp(Color.yellow, Color.red, i / (matricesBuffers.Length -1f)) 
+                colorId, gradient.Evaluate(i / (matricesBuffers.Length - 1f))
             );
             propertyBlock.SetBuffer(matricesId, buffer);
             Graphics.DrawMeshInstancedProcedural(mesh, 0, material, bounds, buffer.count, propertyBlock);
