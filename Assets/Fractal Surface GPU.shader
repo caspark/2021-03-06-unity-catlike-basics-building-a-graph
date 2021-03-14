@@ -1,7 +1,6 @@
 ﻿Shader "Fractal/Fractal Surface GPU"
 {
     Properties {
-        _Color ("Albedo", Color) = (1.0, 1.0, 1.0, 1.0)
         _Smoothness ("Smoothness", Range(0,1)) = 0.5
     }
     
@@ -21,12 +20,11 @@
             float3 worldPos;
         };
 
-        float4 _Color;
         float _Smoothness;
 
         void ConfigureSurface (Input input, inout SurfaceOutputStandard surface)
         {
-            surface.Albedo = _Color.rgb;
+            surface.Albedo = GetFractalColor().rgb;
             surface.Smoothness = _Smoothness;
         }
         
