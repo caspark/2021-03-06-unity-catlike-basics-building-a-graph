@@ -51,7 +51,7 @@ public class FrameRateCounter : MonoBehaviour
             }
             else
             {
-                display.SetText("FPS\n{0:1}\n{1:1}\n{2:1}",
+                display.SetText("MS\n{0:1}\n{1:1}\n{2:1}",
                     1000f * bestDuration,
                     1000f * (duration / frames),
                     1000f * worstDuration);
