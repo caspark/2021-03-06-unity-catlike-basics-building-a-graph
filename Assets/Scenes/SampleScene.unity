@@ -934,6 +934,10 @@ MonoBehaviour:
     m_NumAlphaKeys: 2
   leafColorA: {r: 0.014951949, g: 0.4528302, b: 0.18838604, a: 0.4627451}
   leafColorB: {r: 0.023529407, g: 0.69803923, b: 0.14987135, a: 0.74509805}
+  maxSagAngleA: 15
+  maxSagAngleB: 25
+  spinVelocityA: 0
+  spinVelocityB: 40.2
 --- !u!4 &1664145389
 Transform:
   m_ObjectHideFlags: 0
